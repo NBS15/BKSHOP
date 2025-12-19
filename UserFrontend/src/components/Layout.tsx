@@ -20,7 +20,7 @@ function MidNav() {
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-40 hidden sm:block">
       <nav className="flex items-center gap-4 glass-effect rounded-full px-4 py-2 shadow-xl hover:shadow-2xl transition-all duration-300">
         <Link to="/" className="flex items-center gap-3 px-2 hover:opacity-80 transition group">
-          <img src="/bk_shop.webp" alt="BK Shop" className="h-10 w-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
+          <img src={`${import.meta.env.BASE_URL}bk_shop.webp`} alt="BK Shop" className="h-10 w-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
           <span className="font-bold text-lg hidden sm:inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">BK Shop</span>
         </Link>
         <div className="h-6 w-px bg-base-content/10 mx-2" />

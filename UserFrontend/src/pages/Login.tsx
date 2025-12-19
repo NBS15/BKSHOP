@@ -25,7 +25,7 @@ export default function Login() {
           <div className="relative inline-block group">
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
             <img 
-              src="/bk_shop.webp" 
+              src={`${import.meta.env.BASE_URL}bk_shop.webp`} 
               alt="BK Shop" 
               className="relative w-32 h-32 object-cover rounded-3xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500" 
             />
@@ -60,7 +60,7 @@ export default function Login() {
 
             <div className="relative z-10">
               <div className="lg:hidden text-center mb-8">
-                <img src="/bk_shop.webp" alt="BK Shop" className="w-20 h-20 mx-auto rounded-2xl shadow-lg mb-4" />
+                <img src={`${import.meta.env.BASE_URL}bk_shop.webp`} alt="BK Shop" className="w-20 h-20 mx-auto rounded-2xl shadow-lg mb-4" />
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">BK Shop</h1>
               </div>
 
