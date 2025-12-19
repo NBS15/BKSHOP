@@ -4,10 +4,10 @@ interface StyleCardsProps {
 
 export function StyleCards({ onSelectCategory }: StyleCardsProps) {
   const styles = [
-    { name: 'Hoodie', image: '/hoodies.jpg' },
-    { name: 'Polo', image: '/polo.jpg' },
-    { name: 'T-shirt', image: '/t_shirt.jpg' },
-    { name: 'Casquette', image: '/casquette.png' },
+    { name: 'Hoodie', image: `${import.meta.env.BASE_URL}hoodies.jpg` },
+    { name: 'Polo', image: `${import.meta.env.BASE_URL}polo.jpg` },
+    { name: 'T-shirt', image: `${import.meta.env.BASE_URL}t_shirt.jpg` },
+    { name: 'Casquette', image: `${import.meta.env.BASE_URL}casquette.png` },
   ];
 
   return (
