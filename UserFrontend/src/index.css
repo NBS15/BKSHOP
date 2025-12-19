@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@source "../index.html";
+@source "./**/*.{ts,tsx,js,jsx}";
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --card-bg: hsl(0 0% 100% / 0.8);
+  --card-border: hsl(240 5% 90%);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --card-shadow-hover: 0 12px 16px -4px rgb(0 0 0 / 0.15), 0 4px 6px -2px rgb(0 0 0 / 0.12);
+}
+
+html, body, #root {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base-200 text-base-content antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modern Button Styles */
+.btn {
+  @apply transition-all duration-300 font-medium tracking-wide;
+}
+
+.btn:hover {
+  @apply transform hover:-translate-y-0.5 hover:shadow-lg;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary/80 text-white border-none shadow-md hover:shadow-lg;
+}
+
+/* Modern Card Styles */
+.card {
+  @apply transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-xl;
+}
+
+/* Glassmorphism utilities */
+.glass-effect {
+  @apply bg-base-100/80 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.card-modal {
+  @apply bg-base-100/95 backdrop-blur-md rounded-3xl border border-base-200 shadow-xl md:shadow-2xl w-full;
+  @apply max-w-[92vw] sm:max-w-[85vw] md:max-w-3xl;
+  @apply p-4 sm:p-6 md:p-8;
+}
+
+.card-modern {
+  background: linear-gradient(180deg, hsl(240 8% 98% / 0.9), hsl(240 8% 96% / 0.85)), var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transform: translateZ(0) scale(1);
+  will-change: transform, box-shadow, border-color;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease, border-color 300ms ease, background 300ms ease;
+  overflow: hidden;
+  padding: 1.5rem;
+  content-visibility: auto;
+}
+
+.card-modern:hover {
+  transform: translateZ(0) scale(1.02);
+  box-shadow: var(--card-shadow-hover);
+  border-color: hsl(240 10% 75%);
+}
+
+.card-modern .card-body {
+  @apply p-6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: hsl(240 5% 18% / 0.85);
+    --card-border: hsl(240 7% 25%);
+    --card-shadow: 0 6px 10px -4px rgb(0 0 0 / 0.35);
+    --card-shadow-hover: 0 16px 24px -8px rgb(0 0 0 / 0.45);
+  }
+  .card-modern {
+    background: linear-gradient(180deg, hsl(240 6% 14% / 0.9), hsl(240 6% 12% / 0.9)), var(--card-bg);
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
