@@ -1,0 +1,10 @@
+﻿# enforce LF in repo, let clients check out appropriately
+* text=auto eol=lf
+
+# explicit text files
+*.js text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.html text eol=lf
