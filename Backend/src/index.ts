@@ -37,6 +37,24 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server is running on port ${PORT}`);
 });
+
+// Graceful shutdown handlers
+function shutdown(signal: string) {
+  console.log(`Received ${signal}, shutting down gracefully...`);
+  server.close(() => {
+    console.log('Server closed. Exiting.');
+    process.exit(0);
+  });
+
+  // Force exit after timeout
+  setTimeout(() => {
+    console.error('Could not close connections in time, forcefully exiting');
+    process.exit(1);
+  }, 10000).unref();
+}
+
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));
