@@ -1,25 +1,7 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import { orders, products } from '../data.js';
 const router = express.Router();
-// Mock database
-let orders = [
-    {
-        id: uuidv4(),
-        userId: 'user_001',
-        items: [
-            {
-                productId: 'prod_001',
-                name: 'Hoodie Premium',
-                quantity: 1,
-                price: 59.99,
-            },
-        ],
-        totalAmount: 59.99,
-        status: 'delivered',
-        createdAt: new Date('2025-12-13'),
-        updatedAt: new Date('2025-12-13'),
-    },
-];
 // GET all orders
 router.get('/', (req, res) => {
     res.json(orders);
@@ -44,6 +26,14 @@ router.post('/', (req, res) => {
     if (!userId || !items || !totalAmount) {
         return res.status(400).json({ error: 'Missing required fields' });
     }
+    // Update product stock and orders count
+    items.forEach((item) => {
+        const product = products.find(p => p.id === item.productId);
+        if (product) {
+            product.stock = Math.max(0, product.stock - item.quantity);
+            product.ordersCount = (product.ordersCount || 0) + item.quantity;
+        }
+    });
     const newOrder = {
         id: uuidv4(),
         userId,

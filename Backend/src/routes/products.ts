@@ -1,6 +1,6 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import { products, Product } from '../data';
+import { products, Product } from '../data.js';
 
 const router = express.Router();
 
