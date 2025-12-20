@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
+    "prestart": "ls -la dist || true",
     "dev": "nodemon --exec tsx src/index.ts",
     "build": "tsc",
     "lint": "eslint src --ext .ts"

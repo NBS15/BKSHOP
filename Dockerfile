@@ -22,4 +22,4 @@ COPY Backend/package*.json ./
 RUN npm ci --production --silent || true
 
 EXPOSE 5000
-CMD ["node","dist/index.js"]
+CMD ["npm","start"]
