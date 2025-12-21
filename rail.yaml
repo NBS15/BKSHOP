@@ -9,3 +9,11 @@ build:
 
 run:
   web: cd Backend && npm start
+
+healthcheck:
+  path: /api/health
+  protocol: HTTPS
+  interval: 10s
+  timeout: 10s
+  retries: 3
+  startup_grace: 30s
