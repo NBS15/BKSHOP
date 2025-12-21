@@ -1,0 +1,1 @@
+import{j as e,H as s}from"./index-FscBDe09.js";function r({title:t,description:n}){return e.jsxs(s,{children:[e.jsxs("title",{children:[t," | BK Shop"]}),e.jsx("meta",{name:"description",content:n||"La meilleure boutique de vêtements en ligne."})]})}export{r as S};
