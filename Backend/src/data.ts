@@ -1,5 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
+// Base URL for images (set IMAGE_BASE_URL in env to point to frontend or CDN)
+const IMG_BASE = (process.env.IMAGE_BASE_URL || '').replace(/\/$/, '');
+
 export interface Product {
   id: string;
   name: string;
@@ -50,7 +53,7 @@ export const products: Product[] = [
     category: 'Hoodie',
     price: 59.99,
     stock: 45,
-    image: '/hoodies.jpg',
+    image: `${IMG_BASE ? IMG_BASE : ''}/hoodies.jpg`,
     favorites: 0,
     favoritedBy: [],
     createdAt: new Date(),
@@ -63,7 +66,7 @@ export const products: Product[] = [
     category: 'Polo',
     price: 39.99,
     stock: 78,
-    image: '/polo.jpg',
+    image: `${IMG_BASE ? IMG_BASE : ''}/polo.jpg`,
     favorites: 0,
     favoritedBy: [],
     createdAt: new Date(),

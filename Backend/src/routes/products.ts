@@ -47,6 +47,7 @@ router.get('/:id', (req, res) => {
 // POST new product
 router.post('/', (req, res) => {
   const { name, category, price, stock, image } = req.body;
+  const IMG_BASE = (process.env.IMAGE_BASE_URL || '').replace(/\/$/, '');
 
   if (!name || !category || !price || !stock) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -58,7 +59,7 @@ router.post('/', (req, res) => {
     category,
     price: parseFloat(price),
     stock: parseInt(stock),
-    image: image || '/product.jpg',
+    image: image || `${IMG_BASE ? IMG_BASE : ''}/product.jpg`,
     favorites: 0,
     favoritedBy: [],
     ordersCount: 0,
